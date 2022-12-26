@@ -1,4 +1,4 @@
-const { ethers, run, network } = require("hardhat")
+import { ethers, run, network } from "hardhat"
 
 /*
 to run this script do 'yarn hardhat run scripts/deploy.js'
@@ -38,14 +38,14 @@ const main = async() => {
 }
 
 // to verify the contract on etherscan
-const verify = async(contractAddress, args) => {
+const verify = async(contractAddress:string, args:any[]) => {
   console.log('verifying contract')
   try {
     await run("verify:verify",{
       address:contractAddress,
       constructorArguments: args
     })
-  } catch (error) {
+  } catch (error:any) {
     if(error.message.toLowerCase().includes("already verified")){
       console.log('Already Verified')
     }else{

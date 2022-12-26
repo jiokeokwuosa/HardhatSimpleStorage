@@ -1,6 +1,6 @@
-const { task } = require("hardhat/config")
+import { task } from "hardhat/config"
 
-task("block-number", "Prints the current block number").setAction(
+export default task("block-number", "Prints the current block number").setAction(
     // hre is hardhT runtime environment
     async(tasksArg, hre) =>{
         const blockNumber = await hre.ethers.provider.getBlockNumber()
